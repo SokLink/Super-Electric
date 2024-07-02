@@ -35,15 +35,22 @@ public class StartClemma : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             Inventory.ProvodaCount -= 1;
         }
 
-        WireHead startWireHead = Instantiate(GameComponentsBus.WirePref, _clemmaTransform.position, Quaternion.identity);
+        //WireHead startWireHead = Instantiate(GameComponentsBus.WirePref, _clemmaTransform.position, Quaternion.identity);
+        GameObject startWireHeadGO = Instantiate(GameComponentsBus.WirePref, _clemmaTransform.position, Quaternion.identity, null);
+        startWireHeadGO.TryGetComponent(out WireHead startWireHead);
         startWireHead.DefaultParent = _clemmaTransform;
         startWireHead.WireHeadTransform.SetParent(_clemmaTransform);
 
-        WireHead endWireHead = Instantiate(GameComponentsBus.WirePref, _clemmaTransform.position, Quaternion.identity);
+        //WireHead endWireHead = Instantiate(GameComponentsBus.WirePref, _clemmaTransform.position, Quaternion.identity);
+        GameObject endWireHeadGO = Instantiate(GameComponentsBus.WirePref, _clemmaTransform.position, Quaternion.identity, null);
+        endWireHeadGO.TryGetComponent(out WireHead endWireHead);
         endWireHead.WireHeadTransform.SetParent(null);
         endWireHead.WireHeadCanvasGroup.blocksRaycasts = false;
 
-        _clemmaData.Connection = Instantiate(GameComponentsBus.WireConnectionPref, Vector2.zero, Quaternion.identity);
+        //_clemmaData.Connection = Instantiate(GameComponentsBus.WireConnectionPref, Vector2.zero, Quaternion.identity);
+        GameObject ConnectionGO = Instantiate(GameComponentsBus.WireConnectionPref, Vector2.zero, Quaternion.identity, null);
+        ConnectionGO.TryGetComponent(out WireConnection connection);
+        _clemmaData.Connection = connection;
         _clemmaData.Connection.gameObject.transform.parent = _clemmaTransform;
         _clemmaData.Connection.StartWireHead = startWireHead;
         _clemmaData.Connection.EndWireHead = endWireHead;

@@ -3,17 +3,17 @@ using UnityEngine;
 public class GameComponentsBus : MonoBehaviour
 {
     [SerializeField] private Camera _mainCamera;
-    [SerializeField] private WireHead _wirePref;
-    [SerializeField] private WireConnection _wireConnectionPref;
+    [SerializeField] private GameObject _wirePref;
+    [SerializeField] private GameObject _wireConnectionPref;
 
-    private void OnValidate()
+    private void Awake()
     {
-        if (MainCamera == null) MainCamera = _mainCamera;
-        if (WirePref == null) WirePref = _wirePref;
-        if (WireConnectionPref == null) WireConnectionPref = _wireConnectionPref;
+        MainCamera = _mainCamera;
+        WirePref = _wirePref;
+        WireConnectionPref = _wireConnectionPref;
     }
 
     public static Camera MainCamera;
-    public static WireHead WirePref;
-    public static WireConnection WireConnectionPref;
+    public static GameObject WirePref;
+    public static GameObject WireConnectionPref;
 }
