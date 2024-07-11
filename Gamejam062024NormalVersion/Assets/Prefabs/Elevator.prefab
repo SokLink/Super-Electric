@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 7783962915146905692}
   - component: {fileID: 6678259892355675584}
   - component: {fileID: 592735413135056183}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u041F\u043B\u0430\u0442\u0444\u043E\u0440\u043C\u0430-\u043B\u0438\u0444\u0442"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,6 +396,9 @@ MonoBehaviour:
   _transform: {fileID: 688063211427081782}
   _2PointTransform: {fileID: 5198177006380169603}
   _moveDuration: 5
+  _isReturning: 0
+  _timeBetweenReturning: 2.5
+  _playerTag: Player
 --- !u!61 &592735413135056183
 BoxCollider2D:
   m_ObjectHideFlags: 0
